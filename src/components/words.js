@@ -47,8 +47,6 @@ export default function Words() {
                     console.log('transcript set');
                 }
                 console.log('the current tList: ', transcriptList);
-        
-        
             };
         } catch (error) {
             console.log(error);
