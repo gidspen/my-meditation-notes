@@ -1,16 +1,6 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+  width: 100%;
 }
 
 .App-header {
@@ -20,19 +10,108 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: 1rem;
   color: white;
+  box-shadow: 0px 5px 5px darkgray;
 }
 
 .App-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.content {
+  width: 100%;
+  display: flex;
+}
+
+.welcome {
+  padding: 0.25rem;
+  margin-top: 1rem;
+  border-left: 1px solid #777;
+  width: 30%;
+}
+
+.welcome p {
+  padding: 0.5rem;
+}
+
+.recorder {
+  width: 70%;
+}
+
+.recorder-controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0.5rem;
+}
+
+.recorder-controls button {
+  margin: 0.5rem;
+  padding: 0.5rem;
+  min-width: 5rem;
+  background: coral;
+  border: none;
+  border-radius: 0.2rem;
+  color: white;
+  font-weight: bold;
+}
+.mic-on-indicator {
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 0.75rem;
+  margin: 0.5rem;
+  background-color: grey;
+}
+
+.words {
+  width: 100%;
+}
+
+.paper {
+  margin: 2rem;
+  margin-top: 0;
+  padding: 2rem;
+  background-color: #f7f06d;
+  border-radius: 1rem;
+  box-shadow: 0px 3px 8px darkgray;
+}
+
+.paper-header {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.line {
+  padding: 0.25rem;
+  padding-top: 0.5rem;
+  border-bottom: 1px solid #777;
+  min-height: 1rem;
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
+  .content {
+    flex-direction: column-reverse;
   }
-  to {
-    transform: rotate(360deg);
+
+  .welcome {
+    margin: 0 1rem;
+    border-left: none;
+    border-bottom: 1px solid #777;
+    width: auto;
+  }
+
+  .recorder {
+    width: auto;
+  }
+
+  .recorder-controls button {
+    margin: 0.25rem;
+  }
+
+  .words {
+    width: auto;
   }
 }

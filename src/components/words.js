@@ -1,87 +1,52 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Lines from './lines';
-import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
-
-
+import SpeechRecognition, {
+  useSpeechRecognition,
+} from 'react-speech-recognition';
 
 export default function Words() {
-    const supportedBrowsers = ['Chrome', 'Edge', 'Chrome Android', 'WebView Android', 'Samsumg Internet'];
-    const [isActive, setIsActive] = useState(true);
-    const [transcriptList, setTranscriptList] = useState([]);
-    const { transcript, resetTranscript, finalTranscript, listening } = useSpeechRecognition();
+  const [isActive, setIsActive] = useState(false);
+  const [transcriptList, setTranscriptList] = useState([]);
+  const { listening, transcript, finalTranscript } = useSpeechRecognition();
 
-    console.log('from the top', listening, isActive);
-
-    if (!SpeechRecognition.browserSupportsSpeechRecognition()) {
-        return (
-            <div className={'sorry'}>
-                <h5>
-                Sorry! This browser does not currectly support speech recognition
-                </h5>
-                <p>
-                Try one of the following:
-                    <ul>
-                        {supportedBrowsers.map(browser => <li>{browser}</li>)}
-                    </ul>
-                </p>
-            </div>
-        )
-    }
-
-    console.log('is listening: ', listening);
-
-    async function start() {
-        console.log('started startListening');
-        await SpeechRecognition.startListening({ continuous: false })
-        console.log('finished startListening');
-    }
-
-    async function stop() {
-        console.log('stopping');
-        console.log('final t: ', finalTranscript);
-        await SpeechRecognition.stopListening()
-        console.log('final y after: ', finalTranscript);
-        await setIsActive(false);
-
-        console.log('completed stop');
-    }
-
-    console.log('not listening and is active: ', (!listening && isActive));
-
-    // appends the transcript once the we stop listening
-    // then starts listening again
+  useEffect(() => {
     if (!listening && isActive) {
-        console.log('inside the big if!');
-        
-        if (transcriptList[transcriptList.length - 1 ] !== finalTranscript ) {
-            console.log('setting transcript');
-            setTranscriptList([...transcriptList, transcript]);
-            console.log('transcript set');
-        }
-        console.log('the current tList: ', transcriptList);
+      if (
+        transcriptList[transcriptList.length - 1] !== finalTranscript ||
+        transcriptList[transcriptList.length - 1] !== ''
+      ) {
+        setTranscriptList([...transcriptList, transcript]);
+      }
+      start();
+    }
+  }, [listening, isActive]);
 
-        start();
-    };
+  function start() {
+    SpeechRecognition.startListening({ continuous: false });
+    setIsActive(true);
+  }
 
-    return (
-        <div>
-          <button onClick={() => setIsActive(true)}>Start</button>
-          <button onClick={stop}>Stop</button>
-          <button onClick={resetTranscript}>Reset</button>
-            <ul>
-              {/* {transcriptList.map((transcriptItem, i) => <li key={i}>{transcriptItem}</li>)} */}
-            </ul>
-          <p>t {transcript}</p>
-          <p>ft {finalTranscript}</p>
-        </div>
-      )
-    
-    // return (
-    //     <div>Words
-    //        {/* <Lines text={text}/> */}
-    //     </div>
-    // )
+  function stop() {
+    console.log('stoping');
+    SpeechRecognition.stopListening();
+    setIsActive(false);
+  }
+
+  return (
+    <div className='words'>
+      <div className='recorder-controls'>
+        <button onClick={() => setIsActive(true)}>Start</button>
+        <button onClick={stop}>Stop</button>
+        <div
+          className='mic-on-indicator'
+          style={{ backgroundColor: listening ? '#73A580' : '#DB5461' }}
+        />
+      </div>
+      <div className='paper'>
+        <div className='paper-header'>Today's Notes</div>
+        <Lines text={transcriptList} />
+        <div className='line'>{transcript}</div>
+      </div>
+    </div>
+  );
 }
-
-// show current transcript as the end
-
