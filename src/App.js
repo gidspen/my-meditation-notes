@@ -26,6 +26,18 @@ function App() {
             To get started, just press start! when you are finished you can just
             press stop or leave the page!
           </p>
+          <p>
+            If you want ti kate your notes with you, just copy and paste the
+            text into your journalling/note taking app of your choice :)
+          </p>
+          <p>
+            If you have any feedback, feel free to let us know using any of the
+            links below!
+            <a href=''>Twitter</a>
+            <a href='https://github.com/gidspen/my-meditation-notes/issues'>
+              GitHub
+            </a>
+          </p>
         </div>
       </div>
     </div>
