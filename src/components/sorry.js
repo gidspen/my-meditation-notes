@@ -10,14 +10,19 @@ export default function Sorry() {
   ];
   return (
     <div className={'sorry'}>
-      <h5>Sorry! This browser does not currectly support speech recognition</h5>
+      <h3>
+        Uh oh! It looks like the browser you are using current does not support
+        speach recognition :(
+      </h3>
       <p>
-        Try one of the following:
-        <ul>
+        <h5>
+          Try one of the following browsers to change your meditation game!
+        </h5>
+        <div>
           {supportedBrowsers.map((browser) => (
-            <li>{browser}</li>
+            <div>{browser}</div>
           ))}
-        </ul>
+        </div>
       </p>
     </div>
   );
