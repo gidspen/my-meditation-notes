@@ -14,8 +14,8 @@ export default function Welcome() {
         press stop or leave the page.
       </p>
       <p>
-        If you want ti kate your notes with you, just copy and paste the text
-        into your journalling/note taking app of your choice :)
+        If you want take your notes with you, just copy and paste the text into
+        your journalling/note taking app of your choice :)
       </p>
       <p>
         If you have any feedback, feel free to let us know using any of the
