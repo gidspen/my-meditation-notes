@@ -5,16 +5,17 @@ import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognitio
 export default function Words() {
     const [isActive, setIsActive] = useState(false);
     const [transcriptList, setTranscriptList] = useState([]);
-    const { transcript, resetTranscript, finalTranscript, listening } = useSpeechRecognition();
+    const { transcript, finalTranscript, listening } = useSpeechRecognition();
 
     useEffect(() => {
         if (!listening && isActive) {
             if (transcriptList[transcriptList.length - 1 ] !== finalTranscript || transcriptList[transcriptList.length - 1 ] !== '') {
-                setTranscriptList([...transcriptList, transcript]);
+
+                setTranscriptList(transcriptList => [...transcriptList, transcript]);
             }
             start();
         };
-        }, [listening, isActive]
+        }, [listening, isActive, finalTranscript, transcript, transcriptList]
     )
 
     function start() {
