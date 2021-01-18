@@ -1,45 +1,48 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Lines from './lines';
-
-const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-const recognition = new SpeechRecognition();
-
-recognition.continous = true;
-recognition.interimResults = true;
-recognition.lang = 'en-US';
-
-
+import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 
 export default function Words() {
+    const [isActive, setIsActive] = useState(false);
+    const [transcriptList, setTranscriptList] = useState([]);
+    const { transcript, resetTranscript, finalTranscript, listening } = useSpeechRecognition();
 
-    // const [text, setText] = useState([]);
-    const text = [];
-
-    console.log('inside useEff', recognition);
-        
-    recognition.addEventListener('result', e => {
-        console.log(e.results);
-        const transcript = Array.from(e.results)
-        .map(result => result[0].transcript)
-        .join('');
-        
-        console.log(transcript);
-        // setText([...text, transcript])
-        text.push(transcript);
-        }
+    useEffect(() => {
+        if (!listening && isActive) {
+            if (transcriptList[transcriptList.length - 1 ] !== finalTranscript || transcriptList[transcriptList.length - 1 ] !== '') {
+                setTranscriptList([...transcriptList, transcript]);
+            }
+            start();
+        };
+        }, [listening, isActive]
     )
-    
-    console.log('this is the text', text);
 
-    recognition.addEventListener('end', recognition.start);
-    
-    recognition.start();
+    function start() {
+        SpeechRecognition.startListening({ continuous: false })
+        setIsActive(true);
+    }
 
+    function stop() {
+        SpeechRecognition.stopListening()
+        setIsActive(false);
+    }
 
-    
     return (
-        <div>Words
-           <Lines text={text}/>
+        <div className='words'>
+            <div className='recorder-controls'>
+                <button onClick={() => setIsActive(true)}>Start</button>
+                <button onClick={stop}>Stop</button>
+            <div className='mic-on-indicator' style={{backgroundColor: listening ? '#73a580' : '#db5461'}}/>
+            </div>
+            <div className='paper'>
+                <div className='paper-header'>
+                    Today's Notes
+                </div>
+                <Lines text={transcriptList}/>
+                <div className='line'>{transcript}</div>
+            </div>
         </div>
-    )
+      )
 }
+
+
