@@ -2,33 +2,25 @@ import logo from './logo.svg';
 import './App.css';
 import Words from './components/words'
 import React, { useState } from 'react';
-
-
-function MyComponent() {
-  return <div>
-    My String
-  </div>
-}
-
-function MyOtherComponent() {
-  return <div>
-    My Second String
-  </div>
-}
-
+import Sorry from './components/sorry';
+import Welcome from './components/welcome';
+import SpeechRecognition from 'react-speech-recognition';
 
 function App() {
-  const [ShowComponent, setShowComponent] = useState(false);
+  
+  const supported = SpeechRecognition.browserSupportsSpeechRecognition();
+
   return (
     <div className="App">
       <header className="App-header">
-        My Meditation Notes {ShowComponent.toString()}
+        My Meditation Notes
       </header>
-      {ShowComponent ? <MyComponent /> : <MyOtherComponent />}
-      <Words />
-      <button onClick={ () => setShowComponent(!ShowComponent)}>
-        Button
-      </button>
+      <div className='content'>
+        <div className='recorder'>
+          {supported ? <Words /> : <Sorry />}
+        </div>
+        <Welcome />
+      </div>
     </div>
   );
 }

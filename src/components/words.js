@@ -1,87 +1,48 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Lines from './lines';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 
-
-
 export default function Words() {
-    const supportedBrowsers = ['Chrome', 'Edge', 'Chrome Android', 'WebView Android', 'Samsumg Internet'];
-    const [isActive, setIsActive] = useState(true);
+    const [isActive, setIsActive] = useState(false);
     const [transcriptList, setTranscriptList] = useState([]);
     const { transcript, resetTranscript, finalTranscript, listening } = useSpeechRecognition();
 
-    console.log('from the top', listening, isActive);
+    useEffect(() => {
+        if (!listening && isActive) {
+            if (transcriptList[transcriptList.length - 1 ] !== finalTranscript || transcriptList[transcriptList.length - 1 ] !== '') {
+                setTranscriptList([...transcriptList, transcript]);
+            }
+            start();
+        };
+        }, [listening, isActive]
+    )
 
-    if (!SpeechRecognition.browserSupportsSpeechRecognition()) {
-        return (
-            <div className={'sorry'}>
-                <h5>
-                Sorry! This browser does not currectly support speech recognition
-                </h5>
-                <p>
-                Try one of the following:
-                    <ul>
-                        {supportedBrowsers.map(browser => <li>{browser}</li>)}
-                    </ul>
-                </p>
-            </div>
-        )
+    function start() {
+        SpeechRecognition.startListening({ continuous: false })
+        setIsActive(true);
     }
 
-    console.log('is listening: ', listening);
-
-    async function start() {
-        console.log('started startListening');
-        await SpeechRecognition.startListening({ continuous: false })
-        console.log('finished startListening');
+    function stop() {
+        SpeechRecognition.stopListening()
+        setIsActive(false);
     }
-
-    async function stop() {
-        console.log('stopping');
-        console.log('final t: ', finalTranscript);
-        await SpeechRecognition.stopListening()
-        console.log('final y after: ', finalTranscript);
-        await setIsActive(false);
-
-        console.log('completed stop');
-    }
-
-    console.log('not listening and is active: ', (!listening && isActive));
-
-    // appends the transcript once the we stop listening
-    // then starts listening again
-    if (!listening && isActive) {
-        console.log('inside the big if!');
-        
-        if (transcriptList[transcriptList.length - 1 ] !== finalTranscript ) {
-            console.log('setting transcript');
-            setTranscriptList([...transcriptList, transcript]);
-            console.log('transcript set');
-        }
-        console.log('the current tList: ', transcriptList);
-
-        start();
-    };
 
     return (
-        <div>
-          <button onClick={() => setIsActive(true)}>Start</button>
-          <button onClick={stop}>Stop</button>
-          <button onClick={resetTranscript}>Reset</button>
-            <ul>
-              {/* {transcriptList.map((transcriptItem, i) => <li key={i}>{transcriptItem}</li>)} */}
-            </ul>
-          <p>t {transcript}</p>
-          <p>ft {finalTranscript}</p>
+        <div className='words'>
+            <div className='recorder-controls'>
+                <button onClick={() => setIsActive(true)}>Start</button>
+                <button onClick={stop}>Stop</button>
+            <div className='mic-on-indicator' style={{backgroundColor: listening ? '#73a580' : '#db5461'}}/>
+            </div>
+            <div className='paper'>
+                <div className='paper-header'>
+                    Today's Notes
+                </div>
+                <Lines text={transcriptList}/>
+                <div className='line'>{transcript}</div>
+            </div>
         </div>
       )
-    
-    // return (
-    //     <div>Words
-    //        {/* <Lines text={text}/> */}
-    //     </div>
-    // )
 }
 
-// show current transcript as the end
 
