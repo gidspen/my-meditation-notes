@@ -3,23 +3,24 @@ import React from 'react';
 export default function Welcome() {
   return (
     <div className='welcome'>
-      <h3>Welcome to My Meditation App!</h3>
+      {/* <h3>Welcome to My Meditation App!</h3> */}
       <p>
-        Here you can record your thoughts and emotions with out having to break
-        your meditation. No more writting down that epiphiny you dont want to
-        forget, but runing your flow!
+      My Meditation Notes is a voice dictation app designed to capture the 
+      creative thoughts that arise during meditation, allowing you to 
+      seemlessly remain in a meditative state while engaging your muse.
       </p>
       <p>
-        To get started, just press start! when you are finished you can just
-        press stop or leave the page.
+        To begin, simply press Start. To end, press Stop. When the light to 
+        the right of the Stop button is Red, it's recording. When Green, it's not. 
+        To clear the notepad, you can refresh the page.
       </p>
       <p>
-        If you want take your notes with you, just copy and paste the text into
-        your journalling/note taking app of your choice :)
+        None of the notes are saved so if you wish to keep them, be sure to 
+        copy/paste them into a file you can save.
       </p>
       <p>
-        If you have any feedback, feel free to let us know using any of the
-        links below!
+        If you have any feedback or find this useful, shoot us an email at gidspen@gmail.com or tweet us below! 
+        We'd love to hear from you.
       </p>
       <a href='https://twitter.com/ToolsBetter'>Twitter</a>
       <a href='https://github.com/gidspen/my-meditation-notes/issues'>GitHub</a>

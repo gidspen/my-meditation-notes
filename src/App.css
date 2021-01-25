@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: #0b1c2f;
 }
 
 .App-header {
@@ -18,7 +19,17 @@
   display: flex;
 }
 
-.welcome {
+.name {
+  margin-top: 20px;
+  margin-bottom: 40px;
+  color: #47bec7;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* .welcome {
   padding: 0.25rem;
   margin-top: 1rem;
   border-left: 1px solid #777;
@@ -27,23 +38,41 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+} */
+
+.welcome {
+  margin-bottom: 40px;
+  font-family: Inter, sans-serif;
+  color: #848d96;
+  font-size: 18px;
+  line-height: 140%;
 }
 
 .welcome p {
   padding: 0.5rem;
-  max-width: 20rem;
+  max-width: 30rem;
+  font-family: Lora, sans-serif;
 }
 
 .welcome a {
   padding: 0.5rem;
 }
 
+.tagline {
+  margin-bottom: 40px;
+  color: #ddd;
+  font-size: 58px;
+  font-weight: 600;
+  line-height: 100%;
+}
+
 .sorry {
   text-align: left;
+  color: #ddd;
 }
 
 .recorder {
-  width: 70%;
+  width: 60%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -61,10 +90,10 @@
   margin: 0.5rem;
   padding: 0.5rem;
   min-width: 5rem;
-  background-color: coral;
+  background-color: rgb(206, 215, 228);
   border: none;
   border-radius: 0.2rem;
-  color: white;
+  color: #0b1c2f;
   font-weight: bold;
 }
 
