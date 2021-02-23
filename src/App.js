@@ -11,7 +11,7 @@ function App() {
 
   return (
     <div className="App">
-      <button onClick={()=> {throw "oh no"} }>BreakIt!</button>
+      <button onClick={()=> {throw new Error("oh no!")} }>BreakIt!</button>
       <header className="App-header">
         My Meditation Notes
       </header>
