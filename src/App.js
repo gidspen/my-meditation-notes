@@ -11,9 +11,18 @@ function App() {
 
   return (
     <div className="App">
+      <button onClick={()=> {throw new Error("oh no!")} }>BreakIt!</button>
       <header className="App-header">
         My Meditation Notes
       </header>
+      <div className='name'>
+        A Better Life Product
+      </div>
+      <div className='tagline'>
+        <strong>
+        My Meditation Notes
+        </strong>
+      </div>
       <div className='content'>
         <div className='recorder'>
           {supported ? <Words /> : <Sorry />}

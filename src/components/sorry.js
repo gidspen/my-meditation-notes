@@ -1,6 +1,6 @@
 import React from 'react';
 
-const supportedBrowsers = ['Chrome', 'Edge', 'Chrome Android', 'WebView Android', 'Samsumg Internet'];
+const supportedBrowsers = ['Chrome Desktop', 'Chrome Android', 'Edge', 'WebView Android', 'Samsumg Internet'];
 
 export default function Sorry() {
     return (
