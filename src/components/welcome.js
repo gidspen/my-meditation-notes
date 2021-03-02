@@ -19,9 +19,9 @@ export default function Welcome() {
         copy/paste them into a file you can save.
       </p>
       <p>
-        If you found benefit from this, share the love by upvoting it wherever you found it or
+        If you found benefit from this, share the love by upvoting it on the meditation subreddit or
         telling a friend.
-        If you have any feedback or find this useful, shoot us an email at gidspen@gmail.com! 
+        If you have any feedback, shoot us an email at gidspen@gmail.com! 
         We'd love to hear from you.
       </p>
       {/* <a href='https://twitter.com/ToolsBetter'>Twitter</a>
