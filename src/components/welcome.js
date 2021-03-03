@@ -11,8 +11,7 @@ export default function Welcome() {
       </p>
       <p>
         To begin, simply press Start and begin your meditation practice. If a thought crosses
-        your mind that you want to capture, whether it's something you can't forget or a
-        creative thought you want to remember, speak the note you want to keep and it will be recorded
+        your mind that you want to capture, speak the note you want to keep and it will be recorded
         on the notepad. To end, press Stop.
       </p>
       <p>
