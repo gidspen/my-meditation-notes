@@ -27,6 +27,7 @@ export default function Welcome() {
         If you have any feedback, shoot us an email at gidspen@gmail.com! 
         We'd love to hear from you.
       </p>
+      
       {/* <a href='https://twitter.com/ToolsBetter'>Twitter</a>
       <a href='https://github.com/gidspen/my-meditation-notes/issues'>GitHub</a> */}
     </div>
