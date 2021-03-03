@@ -3,7 +3,7 @@ import React from 'react';
 export default function Welcome() {
   return (
     <div className='welcome'>
-      {/* <h3>Welcome to My Meditation App!</h3> */}
+      <h3>Welcome to My Meditation App!</h3>
       <p>
       My Meditation Notes is a voice dictation app designed to capture the 
       distracting and/or creative thoughts that arise during meditation, allowing you to 
@@ -27,7 +27,7 @@ export default function Welcome() {
         If you have any feedback, shoot us an email at gidspen@gmail.com! 
         We'd love to hear from you.
       </p>
-      
+
       {/* <a href='https://twitter.com/ToolsBetter'>Twitter</a>
       <a href='https://github.com/gidspen/my-meditation-notes/issues'>GitHub</a> */}
     </div>
