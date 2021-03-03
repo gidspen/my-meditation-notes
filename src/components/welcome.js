@@ -19,8 +19,11 @@ export default function Welcome() {
         copy/paste them somewhere they can be saved.
       </p>
       <p>
-        If you found benefit from this, share the love by upvoting it on <a href='https://twitter.com/ToolsBetter'>this meditation subreddit</a> or
-        telling a friend.
+        If you found benefit from this, share the love by upvoting it on
+        <a href='https://twitter.com/ToolsBetter'>the meditation subreddit you found it on</a>or
+        by telling a friend.
+      </p>
+      <p>
         If you have any feedback, shoot us an email at gidspen@gmail.com! 
         We'd love to hear from you.
       </p>
