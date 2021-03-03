@@ -3,7 +3,7 @@ import React from 'react';
 export default function Welcome() {
   return (
     <div className='welcome'>
-      <h3>Welcome to My Meditation App!</h3>
+      {/* <h3>Welcome to My Meditation App!</h3> */}
       <p>
       My Meditation Notes is a voice dictation app designed to capture the 
       distracting and/or creative thoughts that arise during meditation, allowing you to 
