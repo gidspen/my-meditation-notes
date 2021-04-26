@@ -24,7 +24,7 @@ export default function Welcome() {
         by telling a friend.
       </p>
       <p>
-        If you have any feedback, shoot us an email at gidspen@gmail.com! 
+        If you have any feedback, shoot me an email at guishink1@gmail.com!
         We'd love to hear from you.
       </p>
 
