@@ -19,7 +19,7 @@ export default function Welcome() {
         copy/paste them somewhere they can be saved.
       </p>
       <p>
-        Note: be sure the sleep settings on your computer don't cause it to sleep during your 
+        Note: Be sure the sleep settings on your computer don't cause it to sleep during your 
         your meditation or it will stop dictating.
       </p>
       <p>
