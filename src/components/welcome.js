@@ -19,6 +19,10 @@ export default function Welcome() {
         copy/paste them somewhere they can be saved.
       </p>
       <p>
+        Note: Be sure the sleep settings on your computer don't cause it to sleep during your 
+        your meditation or it will stop dictating.
+      </p>
+      <p>
         If you found benefit from this, share the love by upvoting it on
         <a href='https://twitter.com/ToolsBetter'>the meditation subreddit you found it on</a>or
         by telling a friend.
