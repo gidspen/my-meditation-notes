@@ -23,8 +23,8 @@ export default function Welcome() {
         your meditation.
       </p>
       <p>
-        If you found benefit from this, share the love by upvoting it on 
-        the meditation subreddit you found it on or
+        If you found benefit from this, share the love by upvoting it on
+        <a href='https://www.reddit.com/r/Meditation/comments/n2i7mg/how_i_overcame_distracting_thoughts_while/'>the meditation subreddit you found it on</a>or
         by telling a friend.
       </p>
       <p>
